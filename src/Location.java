@@ -3,14 +3,16 @@ import java.util.ArrayList;
 public class Location {
 
 
-    public Location(String namme, int id, ArrayList<Integer> neighborIds) {
-        this.namme = namme;
+    public Location(String name, int id /*, ArrayList<Integer> neighborIds*/) {
+        this.name = name;
         this.id = id;
-        this.neighborIds = neighborIds;
+       // this.neighborIds = neighborIds;
     }
 
-    private String namme;
+    private String name;
     private int id;
     private ArrayList<Integer> neighborIds;
+
+
 
 }

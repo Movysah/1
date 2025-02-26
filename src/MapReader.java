@@ -10,6 +10,7 @@ public class MapReader {
     public MapReader() {
 
         stringsOfData = new ArrayList<>();
+        stringsOfData = getfiletext();
     }
 
 
@@ -26,12 +27,27 @@ public class MapReader {
                 ret.add(text);
 
             }
-    //    } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         return ret;
     }
+
+    public int getNumOfLoc(){
+        return stringsOfData.size();
+    }
+
+    public String getName(int index) {
+        return stringsOfData.get(index*3+1);
+    }
+
+    public int getId(int index) {
+        char ch = stringsOfData.get(index*3+2).charAt(0);
+        return Integer.parseInt(String.valueOf(ch));
+    }
+
+
 
 
 }
