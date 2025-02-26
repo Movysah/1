@@ -17,16 +17,16 @@ public class MapReader {
 
 
     public ArrayList<String> getfiletext() {
+
         ArrayList<String> ret = new ArrayList<>();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("Text.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("Text"));
             String text = "";
             while ((text = reader.readLine()) != null) {
-                System.out.println(text);
                 ret.add(text);
 
             }
-        } catch (FileNotFoundException e) {
+    //    } catch (FileNotFoundException e) {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
