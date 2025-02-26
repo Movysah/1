@@ -9,7 +9,7 @@ public class MapReader {
 
     public MapReader() {
 
-        stringsOfData = new ArrayList();
+        stringsOfData = new ArrayList<>();
     }
 
 
@@ -17,7 +17,20 @@ public class MapReader {
 
 
     public ArrayList<String> getfiletext() {
+        ArrayList<String> ret = new ArrayList<>();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("Text.txt"));
+            String text = "";
+            while ((text = reader.readLine()) != null) {
+                System.out.println(text);
+                ret.add(text);
 
+            }
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return ret;
     }
 
 
