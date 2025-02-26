@@ -13,6 +13,12 @@ public class Location {
     private int id;
     private ArrayList<Integer> neighborIds;
 
-
-
+    @Override
+    public String toString() {
+        return "Location{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", neighborIds=" + neighborIds +
+                '}';
+    }
 }

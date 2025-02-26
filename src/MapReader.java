@@ -39,13 +39,23 @@ public class MapReader {
     }
 
     public String getName(int index) {
-        return stringsOfData.get(index*3+1);
+        return stringsOfData.get(index*3);
     }
 
     public int getId(int index) {
-        char ch = stringsOfData.get(index*3+2).charAt(0);
+        char ch = stringsOfData.get(index*3+1).charAt(0);
         return Integer.parseInt(String.valueOf(ch));
     }
+
+    public ArrayList<Integer> getNeighbor(int index) {
+        ArrayList<Integer> ret = new ArrayList<>();
+        String[] neighbours = stringsOfData.get(index*3+2).split(",");
+        for(String s : neighbours) {
+            ret.add(Integer.parseInt(s));
+        }
+        return ret;
+    }
+
 
 
 

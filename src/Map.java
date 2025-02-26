@@ -9,6 +9,8 @@ public class Map {
         mapReader = new MapReader();
         System.out.println(mapReader.getfiletext());
         loadMap();
+        System.out.println(locations);
+        mapReader.getNeighbor(1);
 
     }
 
