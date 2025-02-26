@@ -3,10 +3,10 @@ import java.util.ArrayList;
 public class Location {
 
 
-    public Location(String name, int id /*, ArrayList<Integer> neighborIds*/) {
+    public Location(String name, int id, ArrayList<Integer> neighborIds) {
         this.name = name;
         this.id = id;
-       // this.neighborIds = neighborIds;
+         this.neighborIds = neighborIds;
     }
 
     private String name;
@@ -15,10 +15,6 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Location{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
-                ", neighborIds=" + neighborIds +
-                '}';
+        return name +" "+ id + " " + neighborIds+"\n";
     }
 }

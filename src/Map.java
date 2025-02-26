@@ -7,7 +7,6 @@ public class Map {
 
         locations = new ArrayList<>();
         mapReader = new MapReader();
-        System.out.println(mapReader.getfiletext());
         loadMap();
         System.out.println(locations);
         mapReader.getNeighbor(1);
@@ -21,7 +20,7 @@ public class Map {
     public void loadMap() {
 
         for (int i = 0; i < mapReader.getNumOfLoc()/3; i++) {
-            Location location = new Location(mapReader.getName(i), mapReader.getId(i));
+            Location location = new Location(mapReader.getName(i), mapReader.getId(i),mapReader.getNeighbor(i));
             locations.add(location);
         }
     }

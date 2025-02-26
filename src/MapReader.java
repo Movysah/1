@@ -43,15 +43,15 @@ public class MapReader {
     }
 
     public int getId(int index) {
-        char ch = stringsOfData.get(index*3+1).charAt(0);
-        return Integer.parseInt(String.valueOf(ch));
+        return  Integer.valueOf(stringsOfData.get(index*3+1));
+
     }
 
     public ArrayList<Integer> getNeighbor(int index) {
         ArrayList<Integer> ret = new ArrayList<>();
         String[] neighbours = stringsOfData.get(index*3+2).split(",");
         for(String s : neighbours) {
-            ret.add(Integer.parseInt(s));
+            ret.add(Integer.valueOf(s));
         }
         return ret;
     }
