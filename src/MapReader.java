@@ -6,16 +6,13 @@ import java.util.ArrayList;
 
 public class MapReader {
 
-
     public MapReader() {
 
         stringsOfData = new ArrayList<>();
         stringsOfData = getfiletext();
     }
 
-
     public ArrayList<String> stringsOfData;
-
 
     public ArrayList<String> getfiletext() {
 
@@ -55,8 +52,6 @@ public class MapReader {
         }
         return ret;
     }
-
-
 
 
 
