@@ -19,7 +19,7 @@ public class MapReader {
         ArrayList<String> ret = new ArrayList<>();
         try {
             BufferedReader reader = new BufferedReader(new FileReader("Text"));
-            String text = "";
+            String text ;
             while ((text = reader.readLine()) != null) {
                 ret.add(text);
 
@@ -40,7 +40,7 @@ public class MapReader {
     }
 
     public int getId(int index) {
-        return  Integer.valueOf(stringsOfData.get(index*3+1));
+        return  Integer.parseInt(stringsOfData.get(index*3+1));
 
     }
 
