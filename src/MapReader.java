@@ -31,7 +31,7 @@ public class MapReader {
         return ret;
     }
 
-    public int getNumOfLoc(){
+    public int getNumOfLocs(){
         return stringsOfData.size();
     }
 
