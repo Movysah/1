@@ -3,28 +3,30 @@ import java.util.ArrayList;
 public class Map {
 
 
-    public Map() {
+    public Map(String mapFile) {
 
         locations = new ArrayList<>();
-        mapReader = new MapReader();
+        mapReader = new MapLoader(mapFile);
         loadMap();
     }
 
 
-    public ArrayList<Location> locations;
-    MapReader mapReader;
+    private ArrayList<Location> locations;
+    MapLoader mapReader;
 
     public void loadMap() {
 
-        for (int i = 0; i < mapReader.getNumOfLocs()/3; i++) {
-            Location location = new Location(mapReader.getName(i), mapReader.getId(i),mapReader.getNeighbor(i));
+        for (int i = 0; i < mapReader.getNumOfLocs() / 3; i++) {
+            Location location = new Location(mapReader.getName(i), mapReader.getId(i), mapReader.getNeighbor(i));
             locations.add(location);
         }
     }
 
 
-    public String getLocsPrint(){
-        return locations.toString();
+
+    public ArrayList<Location> getLocations() {
+        return locations;
     }
+
 
 }

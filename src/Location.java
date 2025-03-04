@@ -13,8 +13,17 @@ public class Location {
     private int id;
     private ArrayList<Integer> neighborIds;
 
-    @Override
-    public String toString() {
-        return name +" "+ id + " " + neighborIds+"\n";
+
+
+    public ArrayList<Integer> getNeighborIds() {
+        return neighborIds;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getId() {
+        return id;
     }
 }

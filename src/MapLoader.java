@@ -4,21 +4,21 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class MapReader {
+public class MapLoader {
 
-    public MapReader() {
+    public MapLoader(String fileName) {
 
         stringsOfData = new ArrayList<>();
-        stringsOfData = getfiletext();
+        stringsOfData = getfiletext(fileName);
     }
 
     public ArrayList<String> stringsOfData;
 
-    public ArrayList<String> getfiletext() {
+    public ArrayList<String> getfiletext(String filename) {
 
         ArrayList<String> ret = new ArrayList<>();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("Text"));
+            BufferedReader reader = new BufferedReader(new FileReader(filename));
             String text ;
             while ((text = reader.readLine()) != null) {
                 ret.add(text);
