@@ -12,7 +12,7 @@ public class Map {
 
 
     private ArrayList<Location> locations;
-    MapLoader mapReader;
+    private MapLoader mapReader;
 
     public void loadMap() {
 

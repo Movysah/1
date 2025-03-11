@@ -8,11 +8,11 @@ public class MapLoader {
 
     public MapLoader(String fileName) {
 
-        stringsOfData = new ArrayList<>();
+       // stringsOfData = new ArrayList<>();
         stringsOfData = getfiletext(fileName);
     }
 
-    public ArrayList<String> stringsOfData;
+    private ArrayList<String> stringsOfData;
 
     public ArrayList<String> getfiletext(String filename) {
 
