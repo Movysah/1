@@ -12,6 +12,9 @@ public class Console {
         commands= new HashMap<>();
 
         commands.put("move", new Move());
+        commands.put("inventory", new Inventory());
+        commands.put("help", new Help());
+        commands.put("quests", new Quests());
 
 
 
@@ -22,6 +25,7 @@ public class Console {
 
 
     public void executeCommand() {
+        System.out.print("//");
         String command = scanner.nextLine();
         command = command.toLowerCase();
         command = command.replace(" ", "");

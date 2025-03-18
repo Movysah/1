@@ -13,13 +13,15 @@ public class Move implements Command {
 
 
     public String getCurrentLocation() {
-        return map.getLocations().get(location_index).getName() + "   " + location_index;
+        return map.getLocations().get(location_index).getName() + "   ";
 
     }
 
     Scanner scan = new Scanner(System.in);
 
     public boolean travelTo() {
+
+        System.out.println("Your current location is " + getCurrentLocation());
         ArrayList<Integer> neighbours = map.getLocations().get(location_index).getNeighborIds();
         for (int id : neighbours) {
             System.out.println(map.getLocations().get(id).getName());
@@ -41,7 +43,7 @@ public class Move implements Command {
 
     @Override
     public String execute() {
-        map = new Map("text");
+        map = new Map("MapFile");
         travelTo();
         return "";
     }
