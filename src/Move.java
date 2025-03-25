@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -30,9 +33,15 @@ public class Move implements Command {
         for (Location location : map.getLocations()) {
             if (locationName.equalsIgnoreCase(location.getName())) {
                 if (map.getLocations().get(location_index).getNeighborIds().contains(location.getId())) {
-                    location_index = location.getId();
-                    System.out.println("succesful move");
-                    return true;
+                    if (!map.getLocations().get(location_index).locked()) {
+                        location_index = location.getId();
+                        System.out.println(location.getName());
+                        System.out.println("succesful move");
+                        return true;
+                    } else {
+                        System.out.println("the place is locked");
+                        return false;
+                    }
                 }
             }
         }
@@ -41,10 +50,25 @@ public class Move implements Command {
     }
 
 
+    public void updateLocInFile() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("PlayerInfo", false))) {
+
+            writer.write(String.valueOf(location_index));
+            writer.newLine();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     @Override
     public String execute() {
         map = new Map("MapFile");
-        travelTo();
+        if (travelTo()) {
+            updateLocInFile();
+        }
+
         return "";
     }
 

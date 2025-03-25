@@ -8,7 +8,7 @@ public class Inventory implements Command {
     public Inventory() {
         inventory = new ArrayList();
 
-
+        loadInventory(getInventoryData("InventoryText"));
     }
 
 
@@ -19,20 +19,15 @@ public class Inventory implements Command {
     }
 
     public void changeAmountTo(int itemID, int newAmount) throws IOException {
-
         ArrayList<String> strings = getInventoryData("InventoryText");
-        System.out.println(strings.size());
         int lineNumber = 0;
-
         for (int i = 0; i < strings.size(); i += 4) {
             if (strings.get(i).equals(itemID + "")) {
                 lineNumber = i+3;
             }
         }
         strings.set(lineNumber, newAmount + "");
-
-        BufferedWriter writer = new BufferedWriter(new FileWriter("InventoryText", false));
-
+        BufferedWriter writer = new BufferedWriter(new FileWriter("PlayerInfo", false));
         for (String s : strings) {
             writer.write(s);
             writer.newLine();
@@ -57,7 +52,6 @@ public class Inventory implements Command {
             BufferedReader reader = new BufferedReader(new FileReader(filename));
             String text;
             while ((text = reader.readLine()) != null) {
-
                 ret.add(text);
 
             }
@@ -79,14 +73,9 @@ public class Inventory implements Command {
 
     @Override
     public String execute() {
-        loadInventory(getInventoryData("InventoryText"));
+
         System.out.println(getInventory());
 
-        try {
-            changeAmountTo(0, 3);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
 
 
         return "";

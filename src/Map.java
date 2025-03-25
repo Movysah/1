@@ -16,7 +16,7 @@ public class Map {
 
     public void loadMap() {
 
-        for (int i = 0; i < mapReader.getNumOfLocs() / 3; i++) {
+        for (int i = 0; i < mapReader.getNumOfLocs() / 4; i++) {
             Location location = new Location(mapReader.getName(i), mapReader.getId(i), mapReader.getNeighbor(i));
             locations.add(location);
         }

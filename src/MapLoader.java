@@ -36,17 +36,17 @@ public class MapLoader {
     }
 
     public String getName(int index) {
-        return stringsOfData.get(index*3);
+        return stringsOfData.get(index*4);
     }
 
     public int getId(int index) {
-        return  Integer.parseInt(stringsOfData.get(index*3+1));
+        return  Integer.parseInt(stringsOfData.get(index*4+1));
 
     }
 
     public ArrayList<Integer> getNeighbor(int index) {
         ArrayList<Integer> ret = new ArrayList<>();
-        String[] neighbours = stringsOfData.get(index*3+2).split(",");
+        String[] neighbours = stringsOfData.get(index*4+2).split(",");
         for(String s : neighbours) {
             ret.add(Integer.valueOf(s));
         }
