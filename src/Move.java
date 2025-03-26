@@ -33,7 +33,7 @@ public class Move implements Command {
         for (Location location : map.getLocations()) {
             if (locationName.equalsIgnoreCase(location.getName())) {
                 if (map.getLocations().get(location_index).getNeighborIds().contains(location.getId())) {
-                    if (!map.getLocations().get(location_index).locked()) {
+                    if (!map.getLocations().get(location.getId()).locked()) {
                         location_index = location.getId();
                         System.out.println(location.getName());
                         System.out.println("succesful move");

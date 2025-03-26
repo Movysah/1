@@ -14,7 +14,6 @@ public class Console {
         commands.put("move", new Move());
         commands.put("inventory", new Inventory());
         commands.put("help", new Help());
-        commands.put("quests", new Quests());
         commands.put("interact", new Interact());
         commands.put("exit", new Exit());
 

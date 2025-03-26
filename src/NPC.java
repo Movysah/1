@@ -32,8 +32,6 @@ public class NPC {
         String giveItemName = quests.get(0).getGiveItemName();
         int giveItemInInventory = 0;
 
-
-
         try {
             BufferedReader reader = new BufferedReader(new FileReader("NPCFile"));
             String text;
@@ -56,9 +54,36 @@ public class NPC {
         }
     }
 
+
+    public void unlockLocation(String LocationName) {
+
+        ArrayList<String> data = getFileData("MapFile");
+
+        for(int i = 0; i < data.size(); i++) {
+            if(data.get(i).equalsIgnoreCase(LocationName)) {
+                data.set(i+3,"false");
+            }
+        }
+        try {
+           BufferedWriter writer = new BufferedWriter(new FileWriter("PlayerInfo", false));
+
+
+            for (String s : data) {
+                writer.write(s);
+                writer.newLine();
+            }
+            writer.flush();
+        } catch (
+                IOException e) {
+            throw new RuntimeException(e);
+
+        }
+
+    }
+
     public void completedQuest(int reqItemInInventory,int giveItemInInventory) {
 
-        ArrayList<String> strings = getInventoryData("InventoryText");
+        ArrayList<String> strings = getFileData("InventoryText");
         int lineNumber1 = 0;
         int lineNumber2 = 0;
         for (int i = 0; i < strings.size(); i += 4) {
@@ -96,7 +121,7 @@ public class NPC {
 
     }
 
-    public ArrayList<String> getInventoryData(String filename) {
+    public ArrayList<String> getFileData(String filename) {
 
         ArrayList<String> ret = new ArrayList<>();
         try {

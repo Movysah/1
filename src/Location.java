@@ -22,11 +22,11 @@ public class Location {
             BufferedReader reader = new BufferedReader(new FileReader("Mapfile"));
             String text;
             while ((text = reader.readLine()) != null) {
-                if (text.equals(id)) {
-                    for (int i = 0; i < 2; i++) {
-                        text = reader.readLine();
+                if (text.equalsIgnoreCase(name)) {
+                    for (int i = 0; i < 3; i++) {
+                        text = reader.readLine();;
                     }
-                    if (text.equals(true)) {
+                    if (text.equals("true")) {
                         return true;
                     } else {
                         return false;

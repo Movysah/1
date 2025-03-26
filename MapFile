@@ -1,7 +1,7 @@
 Island
 0
 1
-
+false
 Shipyard
 1
 0,2
@@ -21,11 +21,11 @@ false
 Rich district
 5
 2
-false
+true
 Harbor
 6
-2
-false
+2,11
+true
 Trade with forbidden things
 7
 9
@@ -42,3 +42,7 @@ Workshop
 10
 2
 false
+Escape
+11
+-3
+true
