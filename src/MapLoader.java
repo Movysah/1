@@ -4,25 +4,30 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Loads map data from a file and provides methods to access map related information.
+ */
 public class MapLoader {
-
-    public MapLoader(String fileName) {
-
-       // stringsOfData = new ArrayList<>();
-        stringsOfData = getfiletext(fileName);
-    }
 
     private ArrayList<String> stringsOfData;
 
-    public ArrayList<String> getfiletext(String filename) {
+    /**
+     * Initializes the map loader and loads map data from the given file.
+     */
+    public MapLoader(String fileName) {
+        stringsOfData = getfiletext(fileName);
+    }
 
+    /**
+     * Reads the content of the given file and returns it as a list of strings.
+     */
+    public ArrayList<String> getfiletext(String filename) {
         ArrayList<String> ret = new ArrayList<>();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filename));
-            String text ;
+            String text;
             while ((text = reader.readLine()) != null) {
                 ret.add(text);
-
             }
         } catch (FileNotFoundException e) {
         } catch (IOException e) {
@@ -31,28 +36,36 @@ public class MapLoader {
         return ret;
     }
 
-    public int getNumOfLocs(){
+    /**
+     * Returns the number of locations in the map data.
+     */
+    public int getNumOfLocs() {
         return stringsOfData.size();
     }
 
+    /**
+     * Returns the name of a location at specified index.
+     */
     public String getName(int index) {
-        return stringsOfData.get(index*4);
+        return stringsOfData.get(index * 4);
     }
 
+    /**
+     * Returns ID of a location .
+     */
     public int getId(int index) {
-        return  Integer.parseInt(stringsOfData.get(index*4+1));
-
+        return Integer.parseInt(stringsOfData.get(index * 4 + 1));
     }
 
+    /**
+     * Returns the list of neighboring location IDs .
+     */
     public ArrayList<Integer> getNeighbor(int index) {
         ArrayList<Integer> ret = new ArrayList<>();
-        String[] neighbours = stringsOfData.get(index*4+2).split(",");
-        for(String s : neighbours) {
+        String[] neighbors = stringsOfData.get(index * 4 + 2).split(",");
+        for (String s : neighbors) {
             ret.add(Integer.valueOf(s));
         }
         return ret;
     }
-
-
-
 }

@@ -4,19 +4,27 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Represents a location in the game.
+ */
 public class Location {
 
+    private String name;
+    private int id;
+    private ArrayList<Integer> neighborIds;
 
+    /**
+     * Creates a new location.
+     */
     public Location(String name, int id, ArrayList<Integer> neighborIds) {
         this.name = name;
         this.id = id;
         this.neighborIds = neighborIds;
     }
 
-    private String name;
-    private int id;
-    private ArrayList<Integer> neighborIds;
-
+    /**
+     * Checks if the location is locked by reading from a map file.
+     */
     public boolean locked() {
         try {
             BufferedReader reader = new BufferedReader(new FileReader("Mapfile"));
@@ -24,15 +32,10 @@ public class Location {
             while ((text = reader.readLine()) != null) {
                 if (text.equalsIgnoreCase(name)) {
                     for (int i = 0; i < 3; i++) {
-                        text = reader.readLine();;
+                        text = reader.readLine();
                     }
-                    if (text.equals("true")) {
-                        return true;
-                    } else {
-                        return false;
-                    }
+                    return text.equals("true");
                 }
-
             }
         } catch (FileNotFoundException e) {
         } catch (IOException e) {
@@ -41,15 +44,24 @@ public class Location {
         return false;
     }
 
-
+    /**
+     * Returns the list of neighboring location IDs.
+     */
     public ArrayList<Integer> getNeighborIds() {
         return neighborIds;
     }
 
+    /**
+     * Returns the name of the location.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Returns the ID of the location.
+
+     */
     public int getId() {
         return id;
     }

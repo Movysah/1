@@ -1,10 +1,15 @@
+/**
+ * Interface for all commands in the game.
+ */
 public interface Command {
 
+    /**
+     * Executes the command.
+     */
+    String execute();
 
-    public abstract String execute();
-    public abstract boolean exit();
-
-
-
-
+    /**
+     * decides if the command should terminate the game.
+     */
+    boolean exit();
 }
