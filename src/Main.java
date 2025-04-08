@@ -3,6 +3,8 @@ public class Main {
 
 
 
+
+
         Console console = new Console();
         console.initialize();
         do{

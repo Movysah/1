@@ -11,7 +11,7 @@ public class Interact implements Command {
      * Creates an Interact object.
      */
     public Interact() {
-
+        createNPCs(getNPCsData());
     }
 
     /**
@@ -20,8 +20,9 @@ public class Interact implements Command {
     public String showgetNPCs() {
         String ret = "";
         for (NPC npc : NPCs) {
+
             if (npc.getLocationId() == playerPosition()) {
-                ret += npc.toString() + "\n";
+                ret += (npc + "\n");
             }
         }
         return ret;
@@ -49,10 +50,10 @@ public class Interact implements Command {
     /**
      * Creates NPCs from a list of strings and adds them to the NPC list.
      */
-    public void createNPCs(ArrayList<String> string){
+    public void createNPCs(ArrayList<String> string) {
         for (int i = 0; i < string.size(); i += 3) {
-            NPC npc = new NPC(Integer.parseInt(string.get(i)), string.get(i + 1), Integer.parseInt(string.get(i + 2)));
-            NPCs.add(npc);
+                NPC npc = new NPC(Integer.parseInt(string.get(i)), string.get(i + 1), Integer.parseInt(string.get(i + 2)));
+                NPCs.add(npc);
         }
     }
 
@@ -62,7 +63,6 @@ public class Interact implements Command {
     public int playerPosition() {
         try {
             BufferedReader reader = new BufferedReader(new FileReader("PlayerInfo"));
-            String text;
             int ret = Integer.parseInt(reader.readLine());
             return ret;
         } catch (FileNotFoundException e) {
@@ -85,9 +85,9 @@ public class Interact implements Command {
     public void typeOfInteraction(NPC npc) {
         System.out.println("Would you like to (see) the quest or (complete) it?");
         String input = scanner.nextLine();
-        if(input.equalsIgnoreCase("see")){
+        if (input.equalsIgnoreCase("see")) {
             npc.showQuests();
-        } else if(input.equalsIgnoreCase("complete")){
+        } else if (input.equalsIgnoreCase("complete")) {
             npc.completeQuest();
         }
     }
@@ -99,10 +99,10 @@ public class Interact implements Command {
     @Override
     public String execute() {
         System.out.println("Choose someone/something you would like to interact with.");
-        showgetNPCs();
+        System.out.println(showgetNPCs());
         String string = scanner.nextLine();
-        for(NPC npc : NPCs){
-            if(string.equalsIgnoreCase(npc.getName())){
+        for (NPC npc : NPCs) {
+            if (string.equalsIgnoreCase(npc.getName())) {
                 typeOfInteraction(npc);
             }
         }

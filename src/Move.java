@@ -47,6 +47,10 @@ public class Move implements Command {
                 if (map.getLocations().get(location_index).getNeighborIds().contains(location.getId())) {
                     if (!map.getLocations().get(location.getId()).locked()) {
                         location_index = location.getId();
+                        if(location_index==4){
+                            System.out.println("!!!Congratulation, You have successfully copleted the game!!!");
+                            System.exit(0);
+                        }
                         System.out.println(location.getName());
                         System.out.println("Successful move");
                         return true;

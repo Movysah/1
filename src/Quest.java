@@ -7,15 +7,17 @@ public class Quest {
     private int reqItemAmount;
     private String giveItemName;
     private int giveItemAmount;
+    private int unlockLocationId;
 
     /**
      * creates a new quest.
      */
-    public Quest(String reqItemName, int reqItemAmount, String giveItemName, int giveItemAmount) {
+    public Quest(String reqItemName, int reqItemAmount, String giveItemName, int giveItemAmount,int unlock) {
         this.reqItemName = reqItemName;
         this.reqItemAmount = reqItemAmount;
         this.giveItemName = giveItemName;
         this.giveItemAmount = giveItemAmount;
+        this.unlockLocationId = unlock;
     }
 
     /**
@@ -44,6 +46,13 @@ public class Quest {
      */
     public int getGiveItemAmount() {
         return giveItemAmount;
+    }
+
+    /**
+     * return an id of the location this quest will unlock
+     */
+    public int getUnlockLocationId() {
+        return unlockLocationId;
     }
 
     /**

@@ -11,7 +11,6 @@ public class Help implements Command {
         System.out.println("Available commands :\n" +
                 "move - enables to explore more of the map\n" +
                 "inventory - look what interesting things you may have in your pockets\n" +
-                "quests - if you forget what to do now this should help\n" +
                 "interact - allows you to interact with people and things in your current location\n" +
                 "exit - exits the program");
         return "";

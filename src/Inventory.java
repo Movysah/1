@@ -16,8 +16,11 @@ public class Inventory implements Command {
     public String execute() {
         ArrayList<String> inventory = getFileData("InventoryText");
 
-        for (int i = 0; i < inventory.size(); i += 4) {
-            System.out.println(inventory.get(i + 1) + " x" + inventory.get(i + 3));
+        for (int i = 0; i < inventory.size()-1; i += 4) {
+            if (!inventory.get(i + 3).equals("0")) {
+                System.out.println(inventory.get(i + 3) + "x " + inventory.get(i + 1));
+
+            }
         }
         return "";
     }
